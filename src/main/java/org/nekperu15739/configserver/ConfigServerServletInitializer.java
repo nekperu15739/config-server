@@ -1,4 +1,4 @@
-package org.nekperu15739.microservices;
+package org.nekperu15739.configserver;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;

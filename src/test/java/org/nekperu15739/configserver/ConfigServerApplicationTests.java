@@ -1,4 +1,4 @@
-package org.nekperu15739.microservices;
+package org.nekperu15739.configserver;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
