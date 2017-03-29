@@ -4,3 +4,5 @@ spring:
       server:
         git:
           uri: https://github.com/nekperu15739/config-repo
+server:
+  port: 8888
