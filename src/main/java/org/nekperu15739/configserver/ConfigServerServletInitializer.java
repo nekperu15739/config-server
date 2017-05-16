@@ -8,6 +8,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
  * @author nekperu15739
  *
  */
+@Deprecated
 public class ConfigServerServletInitializer extends SpringBootServletInitializer {
 
     @Override
