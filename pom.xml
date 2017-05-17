@@ -21,8 +21,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-     	<docker.image.prefix>nekperu15739</docker.image.prefix>
-   	    <docker.image.tag>latest</docker.image.tag>
+		<docker.image.prefix>nekperu15739</docker.image.prefix>
+		<docker.image.tag>latest</docker.image.tag>
 	</properties>
 
 	<dependencies>
@@ -30,7 +30,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -39,7 +38,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -73,39 +71,22 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<groupId>com.spotify</groupId> -->
-<!-- 				<artifactId>docker-maven-plugin</artifactId> -->
-<!-- 				<version>0.4.11</version> -->
-<!-- 				<configuration> -->
-<!-- 					<imageName>${docker.image.prefix}/${project.artifactId}</imageName> -->
-<!-- 					<baseImage>frolvlad/alpine-oraclejdk8:slim</baseImage> -->
-<!-- 					<entryPoint>["java", "-jar", "/tmp/${project.build.finalName}.war"]</entryPoint> -->
-<!-- 					<resources> -->
-<!-- 						<resource> -->
-<!-- 							<targetPath>/tmp</targetPath> -->
-<!-- 							<directory>${project.build.directory}</directory> -->
-<!-- 							<include>${project.build.finalName}.war</include> -->
-<!-- 						</resource> -->
-<!-- 					</resources> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
 			<plugin>
-		      <groupId>com.spotify</groupId>
-		      <artifactId>docker-maven-plugin</artifactId>
-		      <version>0.4.11</version>
-		      <configuration>
-		        <imageName>${docker.image.prefix}/${project.artifactId}:${docker.image.tag}</imageName>
-                <dockerDirectory>${basedir}/dockerDirectory/</dockerDirectory>
-		        <resources>
-		           <resource>
-		             <targetPath>/</targetPath>
-		             <directory>${project.build.directory}</directory>
-		             <include>${project.build.finalName}.war</include>
-		           </resource>
-		        </resources>
-		      </configuration>
-		    </plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.11</version>
+				<configuration>
+					<imageName>${docker.image.prefix}/${project.artifactId}:${docker.image.tag}</imageName>
+					<dockerDirectory>${basedir}/dockerDirectory/</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -121,5 +102,12 @@
 	</repositories>
 
 
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
+	<url>https://github.com/nekperu15739/config-server</url>
+	<scm>
+		<url>https://github.com/nekperu15739/config-server</url>
+	</scm>
+	<organization>
+		<name>nekperu15739</name>
+	</organization>
 </project>

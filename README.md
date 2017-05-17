@@ -1,9 +1,34 @@
 # config-server
+* [Overview](URL "overview")
+* [Build](URL "Build")
+* [Run](URL "Run")
+* [Image Repository](URL "Image Repository")
+* [Backoffice](URL "Backoffice")
+
+## Overview
+This project it's a sample implementation of **spring cloud config server**, using Spring-Cloud stack with Java 8, more information will be found here: http://cloud.spring.io/spring-cloud-config/
+
+```java
+
+@EnableConfigServer
+@SpringBootApplication
+public class ConfigServerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ConfigServerApplication.class, args);
+	}
+}
+
+``
+
+## Build
 mvn package docker:build
 
+## Run
 docker run -p 8888:8888 -t nekperu15739/spring-cloud-config:latest
 
-https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#volume
+## Image Repository
+The lastest image is public here: https://hub.docker.com/r/nekperu15739/spring-cloud-config/
 
-If a service can run without privileges, use USER to change to a non-root user. Start by creating the user and group in the 
-Dockerfile with something like RUN groupadd -r postgres && useradd -r -g postgres postgres
+## Backoffice
+The backoffice throw config server it's obviously git, and on this case the resources to public are in https://github.com/nekperu15739/config-repo
